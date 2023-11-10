@@ -73,6 +73,16 @@ namespace Padarosa2023.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gerente {
+            get {
+                object obj = ResourceManager.GetObject("gerente", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap wil_stewart_RpDA3uYkJWM_unsplash {
             get {
                 object obj = ResourceManager.GetObject("wil-stewart-RpDA3uYkJWM-unsplash", resourceCulture);
