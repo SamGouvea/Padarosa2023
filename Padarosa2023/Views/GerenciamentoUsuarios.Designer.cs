@@ -176,6 +176,7 @@
             this.btnEd.TabIndex = 7;
             this.btnEd.Text = "Editar";
             this.btnEd.UseVisualStyleBackColor = false;
+            this.btnEd.Click += new System.EventHandler(this.btnEd_Click);
             // 
             // txbSenhaEd
             // 
