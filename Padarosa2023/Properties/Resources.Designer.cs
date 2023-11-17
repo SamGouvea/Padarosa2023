@@ -73,6 +73,16 @@ namespace Padarosa2023.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap caracteristicas {
+            get {
+                object obj = ResourceManager.GetObject("caracteristicas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Custom_Icon_Design_Pretty_Office_13_Users_512 {
             get {
                 object obj = ResourceManager.GetObject("Custom-Icon-Design-Pretty-Office-13-Users.512", resourceCulture);

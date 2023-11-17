@@ -166,5 +166,8 @@
   <ItemGroup>
     <None Include="Resources\Custom-Icon-Design-Pretty-Office-13-Users.512.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caracteristicas.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
