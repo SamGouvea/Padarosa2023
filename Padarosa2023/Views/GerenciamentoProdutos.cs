@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Padarosa2023.Classes;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,12 +19,26 @@ namespace Padarosa2023.Views
         public GerenciamentoProdutos(Classes.Usuario usuario)
         {
             InitializeComponent();
-            this.usuario = usuario;
-
             Classes.Produto produto = new Classes.Produto();
+
+            this.usuario = usuario;
 
             // Atribuir a tabela (resultado do SELECT) no DGV:
             dgvProdutos.DataSource = produto.ListarProduto();
+
+            Classes.Categoria categoria = new Classes.Categoria();
+
+            // Montar um Array de itens para colocar no cmb:
+            var r = categoria.ListarTudo(); // r é a tabela do bd
+
+            // Percorrer o R, montar a string e adicionar no array listacmb:
+            foreach (DataRow linha in r.Rows)
+            {
+                cmbCategoriasEd.Items.Add(linha.ItemArray[0].ToString() + " - " + linha.ItemArray[1].ToString());
+                cmbCategoriasCad.Items.Add(linha.ItemArray[0].ToString() + " - "+linha.ItemArray[1].ToString());
+            }
+
+            
         }
 
         private void btnCadastrar_Click(object sender, EventArgs e)
@@ -33,21 +49,23 @@ namespace Padarosa2023.Views
             produto.Nome = txbNomeProdCad.Text;
             produto.Preco = double.Parse(txbPrecoCad.Text);
             produto.IdRespCadastro = usuario.Id;
-            produto.IdCategoria = int.Parse(txbCategoriaCad.Text);
+            produto.IdCategoria = int.Parse(cmbCategoriasCad.Text.Split('-')[0]);
+
+
 
             if (produto.CadastrarProduto() == true)
             {
-                MessageBox.Show("Usuário cadastrado com sucesso!");
+                MessageBox.Show("produto cadastrado com sucesso!");
                 // Limpar os campos:
                 txbNomeProdCad.Clear();
                 txbPrecoCad.Clear();
-                txbCategoriaCad.Clear();
+                cmbCategoriasCad.SelectedIndex = -1;
                 // Atualizar o dgv:
                 dgvProdutos.DataSource = produto.ListarProduto();
             }
             else
             {
-                MessageBox.Show("Falha ao cadastrar usuário!");
+                MessageBox.Show("Falha ao cadastrar o produto!");
             }
 
 
@@ -95,7 +113,7 @@ namespace Padarosa2023.Views
                     // Limpar os campos da edição:
                     txbPrecoEd.Clear();
                     txbNomeProdEd.Clear();
-                    txbCategoriaEd.Clear();
+                    cmbCategoriasCad.Text = "";
                     lblApagarProd.Text = "Selecione um produto para apagar.";
                     // Desabilitar os grbs:
                     GrbApagarProd.Enabled = false;
@@ -112,33 +130,46 @@ namespace Padarosa2023.Views
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            Classes.Produto produto = new Classes.Produto();
-            produto.Id = idSelecionado;
-            produto.Nome = txbNomeProdEd.Text;
-            produto.Preco = double.Parse(txbPrecoEd.Text);
-            produto.IdCategoria = int.Parse(txbCategoriaEd.Text);
-
-            // Editar:
-            if (produto.Modificar() == true)
+            if (cmbCategoriasEd.Text != "")
             {
-                MessageBox.Show("Produto modificado!", "Sucesso!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Information);
-                // Atualizar o dgv:
-                dgvProdutos.DataSource = produto.ListarProduto();
-                // Limpar os campos da edição:
-                txbPrecoEd.Clear();
-                txbNomeProdEd.Clear();
-                txbCategoriaEd.Clear();
-                lblApagarProd.Text = "Selecione um produto para apagar.";
-                // Desabilitar os grbs:
-                GrbApagarProd.Enabled = false;
-                GrbEdProd.Enabled = false;
+                Classes.Produto produto = new Classes.Produto();
+                produto.Id = idSelecionado;
+                produto.Nome = txbNomeProdEd.Text;
+                produto.Preco = double.Parse(txbPrecoEd.Text);
+                produto.IdCategoria = int.Parse(cmbCategoriasEd.Text.Split('-')[0]);
+
+                // Editar:
+                if (produto.Modificar() == true)
+                {
+                    MessageBox.Show("Produto modificado!", "Sucesso!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Information);
+                    // Atualizar o dgv:
+                    dgvProdutos.DataSource = produto.ListarProduto();
+                    // Limpar os campos da edição:
+                    txbPrecoEd.Clear();
+                    txbNomeProdEd.Clear();
+                    
+
+                    lblApagarProd.Text = "Selecione um produto para apagar.";
+                    // Desabilitar os grbs:
+                    GrbApagarProd.Enabled = false;
+                    GrbEdProd.Enabled = false;
+
+                    cmbCategoriasEd.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("Falha ao modificar o produto!", "Falha!", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                }
+                
             }
             else
             {
-                MessageBox.Show("Falha ao modificar o produto!", "Falha!", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
+                MessageBox.Show("Escolha uma categoria para editar!");
             }
+
+
         }
     }
 }
