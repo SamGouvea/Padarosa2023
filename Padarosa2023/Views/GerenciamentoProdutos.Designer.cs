@@ -32,6 +32,7 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.dgvProdutos = new System.Windows.Forms.DataGridView();
             this.GrbCadastroProd = new System.Windows.Forms.GroupBox();
+            this.cmbCategoriasCad = new System.Windows.Forms.ComboBox();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.txbPrecoCad = new System.Windows.Forms.TextBox();
             this.lblCategoriaCad = new System.Windows.Forms.Label();
@@ -39,6 +40,7 @@
             this.txbNomeProdCad = new System.Windows.Forms.TextBox();
             this.lblNomeCad = new System.Windows.Forms.Label();
             this.GrbEdProd = new System.Windows.Forms.GroupBox();
+            this.cmbCategoriasEd = new System.Windows.Forms.ComboBox();
             this.btnEditar = new System.Windows.Forms.Button();
             this.txbPrecoEd = new System.Windows.Forms.TextBox();
             this.lblCategoriaEd = new System.Windows.Forms.Label();
@@ -50,8 +52,6 @@
             this.GrbApagarProd = new System.Windows.Forms.GroupBox();
             this.btnApagarProd = new System.Windows.Forms.Button();
             this.lblApagarProd = new System.Windows.Forms.Label();
-            this.cmbCategoriasCad = new System.Windows.Forms.ComboBox();
-            this.cmbCategoriasEd = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProdutos)).BeginInit();
             this.GrbCadastroProd.SuspendLayout();
             this.GrbEdProd.SuspendLayout();
@@ -78,6 +78,7 @@
             this.dgvProdutos.Size = new System.Drawing.Size(588, 220);
             this.dgvProdutos.TabIndex = 1;
             this.dgvProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellClick);
+            this.dgvProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProdutos_CellContentClick);
             // 
             // GrbCadastroProd
             // 
@@ -94,6 +95,15 @@
             this.GrbCadastroProd.TabIndex = 2;
             this.GrbCadastroProd.TabStop = false;
             this.GrbCadastroProd.Text = "Cadastro de Produtos";
+            // 
+            // cmbCategoriasCad
+            // 
+            this.cmbCategoriasCad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriasCad.FormattingEnabled = true;
+            this.cmbCategoriasCad.Location = new System.Drawing.Point(60, 113);
+            this.cmbCategoriasCad.Name = "cmbCategoriasCad";
+            this.cmbCategoriasCad.Size = new System.Drawing.Size(100, 21);
+            this.cmbCategoriasCad.TabIndex = 7;
             // 
             // btnCadastrar
             // 
@@ -163,6 +173,15 @@
             this.GrbEdProd.TabIndex = 6;
             this.GrbEdProd.TabStop = false;
             this.GrbEdProd.Text = "Editar Produto";
+            // 
+            // cmbCategoriasEd
+            // 
+            this.cmbCategoriasEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbCategoriasEd.FormattingEnabled = true;
+            this.cmbCategoriasEd.Location = new System.Drawing.Point(60, 113);
+            this.cmbCategoriasEd.Name = "cmbCategoriasEd";
+            this.cmbCategoriasEd.Size = new System.Drawing.Size(100, 21);
+            this.cmbCategoriasEd.TabIndex = 8;
             // 
             // btnEditar
             // 
@@ -260,24 +279,6 @@
             this.lblApagarProd.Size = new System.Drawing.Size(165, 13);
             this.lblApagarProd.TabIndex = 0;
             this.lblApagarProd.Text = "Selecione o produto para apagar.";
-            // 
-            // cmbCategoriasCad
-            // 
-            this.cmbCategoriasCad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoriasCad.FormattingEnabled = true;
-            this.cmbCategoriasCad.Location = new System.Drawing.Point(60, 113);
-            this.cmbCategoriasCad.Name = "cmbCategoriasCad";
-            this.cmbCategoriasCad.Size = new System.Drawing.Size(100, 21);
-            this.cmbCategoriasCad.TabIndex = 7;
-            // 
-            // cmbCategoriasEd
-            // 
-            this.cmbCategoriasEd.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbCategoriasEd.FormattingEnabled = true;
-            this.cmbCategoriasEd.Location = new System.Drawing.Point(60, 113);
-            this.cmbCategoriasEd.Name = "cmbCategoriasEd";
-            this.cmbCategoriasEd.Size = new System.Drawing.Size(100, 21);
-            this.cmbCategoriasEd.TabIndex = 8;
             // 
             // GerenciamentoProdutos
             // 
