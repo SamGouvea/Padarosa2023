@@ -63,6 +63,16 @@ namespace Padarosa2023.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap caixa_eletronico {
+            get {
+                object obj = ResourceManager.GetObject("caixa-eletronico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap camille_chen_Se_FD6umITU_unsplash {
             get {
                 object obj = ResourceManager.GetObject("camille-chen-Se-FD6umITU-unsplash", resourceCulture);
@@ -106,6 +116,26 @@ namespace Padarosa2023.Properties {
         internal static System.Drawing.Bitmap Icons_Land_Vista_People_Groups_Meeting_Light_256 {
             get {
                 object obj = ResourceManager.GetObject("Icons-Land-Vista-People-Groups-Meeting-Light.256", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap icons8_caixa_registradora_32 {
+            get {
+                object obj = ResourceManager.GetObject("icons8-caixa-registradora-32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap lupa {
+            get {
+                object obj = ResourceManager.GetObject("lupa", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
